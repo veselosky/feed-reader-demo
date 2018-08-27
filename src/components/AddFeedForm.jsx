@@ -12,7 +12,8 @@ class AddFeedForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    alert(`Submitted ${this.state.enteredUrl}`);
+    this.setState({ enteredUrl: "" });
+    alert(`Submitted ${this.state.enteredUrl} (Adding feeds not implemented)`);
   };
 
   render() {
