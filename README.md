@@ -3,6 +3,8 @@
 This is just a demo application for me to play with React and Node.
 Move along. These aren't the droids you're looking for.
 
+The demo is live at [readme.mindvessel.net](http://readme.mindvessel.net).
+
 ## RSS Reader App
 
 The goal here is to implement an RSS reader that runs in the browser, replacing heavyweight server-side feed aggregators. This is, of course, impossible due to browser security constraints and the fact that NOBODY puts CORS headers on their RSS feeds even though that would be perfectly rational.
@@ -16,4 +18,4 @@ For this demo, I'm just converting feeds to JSON and saving them locally. If we 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-For information on how to perform common tasksgo [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+For information on how to perform common tasks go [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).

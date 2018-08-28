@@ -63,6 +63,9 @@ class App extends Component {
         <footer>
           <Typography variant="caption" align="center">
             &copy; Copyright 2018 by Vince Veselosky.
+            <a href="https://github.com/veselosky/feed-reader-demo">
+              Get the code.
+            </a>
           </Typography>
         </footer>
       </React.Fragment>

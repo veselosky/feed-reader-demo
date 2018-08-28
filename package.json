@@ -15,7 +15,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "node ./getFeeds.js && react-scripts build",
+    "deploy": "aws s3 cp build/ s3://readme.mindvessel.net --recursive --acl public-read",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
