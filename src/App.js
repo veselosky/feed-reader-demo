@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
-import FeedParser from "feedparser";
 
 import "./App.css";
 import FeedList from "./components/FeedList";
@@ -9,16 +8,27 @@ import ItemList from "./components/ItemList";
 
 class App extends Component {
   state = {
-    feeds: [],
-    feedItems: {},
-    subscribedUrls: [
-      "https://vince.veselosky.me/feed",
-      "http://www.thecreativepenn.com/feed/"
-    ]
+    feeds: []
   };
 
   componentDidMount() {
     // implement data fetch here
+    fetch("/subscriptions.json")
+      .then(res => {
+        return res.json();
+      })
+      .then(subs => {
+        subs.forEach(feed => {
+          fetch(`${feed._name}.json`)
+            .then(res => {
+              return res.json();
+            })
+            .then(feeddata => {
+              Object.assign(feed, feeddata);
+              this.setState({ feeds: [...this.state.feeds, feed] });
+            });
+        });
+      });
   }
 
   render() {
