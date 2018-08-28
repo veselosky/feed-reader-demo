@@ -7,7 +7,7 @@ const FeedList = ({ feeds = [] }) => {
       <h2>Feeds:</h2>
       <ul>
         {feeds.map(feed => {
-          return <li>{feed.title}</li>;
+          return <li key={feed._name}>{feed.title}</li>;
         })}
       </ul>
     </React.Fragment>
