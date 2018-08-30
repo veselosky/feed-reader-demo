@@ -30,14 +30,10 @@ fs.readFile("public/subscriptions.json", (err, data) => {
         });
         fp.on("end", () => {
           fs.writeFile(
-            `public/${feed._name}.json`,
+            `public/feed/${feed._name}.json`,
             JSON.stringify(feed),
             err => {
-              if (err) {
-                console.log(err);
-              } else {
-                console.log(`${feed._name}.json saved`);
-              }
+              console.log(err ? err : `${feed._name}.json saved`);
             }
           );
         });

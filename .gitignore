@@ -9,6 +9,9 @@
 # production
 /build
 
+# We don't store feed data in git. Update it just prior to deply.
+public/feed/*.json
+
 # misc
 .DS_Store
 .env.local
