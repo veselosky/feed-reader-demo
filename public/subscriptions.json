@@ -1,15 +1,46 @@
 [
   {
-    "_name": "VinceVeselosky",
-    "_url": "https://vince.veselosky.me/feed"
+    "title": "Vince Veselosky",
+    "image": {
+      "url": "https://vince.veselosky.me/wp-content/uploads/2017/06/cropped-Phoenix-Vince-square-32x32.jpeg",
+      "title": "Vince Veselosky"
+    },
+    "_url": "https://vince.veselosky.me/feed",
+    "_name": "Vince-Veselosky"
   },
   {
-    "_name": "TheCreativePenn",
-    "_url": "http://www.thecreativepenn.com/feed/"
+    "title": "Blog – Jane Friedman",
+    "image": {
+      "url": "https://i1.wp.com/www.janefriedman.com/wp-content/uploads/2014/12/Friedman-Icon-copy1-548f4b9d_site_icon.png?fit=32%2C32&ssl=1",
+      "title": "Blog – Jane Friedman"
+    },
+    "_url": "https://www.janefriedman.com/blog/feed/",
+    "_name": "Jane-Friedman"
   },
-  { "_name": "DavidGaughran", "_url": "http://davidgaughran.com/feed/" },
   {
-    "_name": "JaneFriedman",
-    "_url": "https://www.janefriedman.com/blog/feed/"
+    "title": "David Gaughran",
+    "image": {
+      "url": "http://davidgaughran.com/wp-content/uploads/2018/02/cropped-Favicon-512-1-32x32.jpg",
+      "title": "David Gaughran"
+    },
+    "_url": "http://davidgaughran.com/feed/",
+    "_name": "David-Gaughran"
+  },
+  {
+    "title": "The Creative Penn",
+    "image": {
+      "url": "http://www.thecreativepenn.com/wp-content/uploads/powerpress/CreativePennPodcastButton_1400x14002.jpg"
+    },
+    "_url": "http://www.thecreativepenn.com/feed/",
+    "_name": "The-Creative-Penn"
+  },
+  {
+    "title": "KindlePreneur",
+    "image": {
+      "url": "https://kindlepreneur.com/wp-content/uploads/2015/04/cropped-Logo-Icon-no-Words-32x32.png",
+      "title": "KindlePreneur"
+    },
+    "_url": "https://kindlepreneur.com/feed/",
+    "_name": "KindlePreneur"
   }
 ]
