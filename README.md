@@ -14,6 +14,19 @@ For this demo, I'm just converting feeds to JSON and saving them locally. If we 
 - [CORS-Anywhere](https://github.com/Rob--W/cors-anywhere/) is an open-source CORS proxy for Node.js. You could run one of these on a tiny server and whitelist all the domains where you serve websites. You still have to run infrastructure, but not much.
 - Lambda/API Gateway: Write a tiny Lambda function that grabs subscribed feeds and writes them to the S3 bucket that serves the app. It could read the list of subscribed feeds from the bucket. But managing the list would be a pain. (Tool to manage the list sold separately?)
 
+## Roadmap
+
+### Iteration 001
+
+Just get something working.
+
+### Iteration 002
+
+- Introduce proper routing.
+- Load feeds individually on demand, instead of all at once on App mount.
+- Add a "selected" state in the feed list.
+- UI tweaks
+
 ## Misc
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
