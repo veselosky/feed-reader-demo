@@ -1,33 +1,34 @@
 import React from "react";
+import { Link, Route, Switch } from "react-router-dom";
 import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import Avatar from "@material-ui/core/Avatar";
-import RssFeed from "@material-ui/icons/RssFeed";
+import FeedPill from "./FeedPill";
 
 const FeedList = ({ feeds = [], onSelectFeed }) => {
   if (feeds.length === 0) return <p>No feeds yet. Add one!</p>;
+  // TODO Style non-linked (current) feed pill differently
   return (
     <React.Fragment>
       <h2>Feeds:</h2>
       <List>
         {feeds.map(feed => {
-          var leader =
-            feed.image && feed.image.url ? (
-              <Avatar src={feed.image.url} />
-            ) : (
-              <RssFeed />
-            );
-
           return (
-            <ListItem
-              key={feed._name}
-              button
-              onClick={() => onSelectFeed(feed._name)}
-            >
-              {leader}
-              <ListItemText primary={feed.title} />
-            </ListItem>
+            <Switch key={feed._name}>
+              <Route
+                path={`/feed/${feed._name}`}
+                render={props => {
+                  return <FeedPill feed={feed} {...props} />;
+                }}
+              />
+              <Route
+                render={props => {
+                  return (
+                    <Link to={`/feed/${feed._name}/`}>
+                      <FeedPill feed={feed} {...props} />
+                    </Link>
+                  );
+                }}
+              />
+            </Switch>
           );
         })}
       </List>

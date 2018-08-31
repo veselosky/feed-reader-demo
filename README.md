@@ -23,9 +23,8 @@ Just get something working.
 ### Iteration 002
 
 - Introduce proper routing.
-- Load feeds individually on demand, instead of all at once on App mount.
-- Add a "selected" state in the feed list.
-- UI tweaks
+- Distinguish the "selected" feed by appearance (not clickable).
+- Changed my mind about loading feeds on demand. Later I will need all the items to do unread counts anyway. May as well load everything up. Keep an eye on memory usage!
 
 ## Misc
 

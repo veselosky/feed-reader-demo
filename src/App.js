@@ -1,48 +1,45 @@
 import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
 import "./App.css";
 import FeedList from "./components/FeedList";
-import ItemList from "./components/ItemList";
+import Feed from "./components/Feed";
 
 class App extends Component {
   state = {
-    selected: null,
+    subscriptions: [],
     feeds: []
   };
 
-  handleSelectFeed = feedname => {
-    this.setState({ selected: feedname });
-  };
-
   componentDidMount() {
-    // implement data fetch here
+    // Load the subscription list
     fetch("/subscriptions.json")
       .then(res => {
+        console.log(`OK ${res.url}`);
         return res.json();
       })
       .then(subs => {
+        this.setState({ subscriptions: subs });
         subs.forEach(feed => {
-          fetch(`${feed._name}.json`)
+          fetch(`/feed/${feed._name}.json`)
             .then(res => {
-              return res.json();
+              if (res.ok) {
+                console.log(`OK ${res.url}`);
+                return res.json();
+              } else {
+                console.log(`${res.status} ${res.statusText}`);
+              }
             })
             .then(feeddata => {
-              Object.assign(feed, feeddata);
-              this.setState({ feeds: [...this.state.feeds, feed] });
+              this.setState({ feeds: [...this.state.feeds, feeddata] });
             });
         });
       });
   }
 
   render() {
-    var feed;
-    [feed] = this.state.feeds.filter(f => {
-      return f._name === this.state.selected;
-    });
-    var items = feed ? feed.items : [];
-
     return (
       <React.Fragment>
         <header className="App-header">
@@ -50,14 +47,22 @@ class App extends Component {
         </header>
         <Grid container spacing={16}>
           <Grid item sm={3} className="feedList">
-            <FeedList
-              feeds={this.state.feeds}
-              onSelectFeed={this.handleSelectFeed}
-            />
+            <FeedList feeds={this.state.subscriptions} />
           </Grid>
 
           <Grid item sm={9} className="itemList">
-            <ItemList items={items} />
+            <Route
+              path="/feed/:feedName/"
+              render={({ match }) => {
+                return (
+                  <Feed
+                    feed={this.state.feeds.find(
+                      feed => feed._name === match.params.feedName
+                    )}
+                  />
+                );
+              }}
+            />
           </Grid>
         </Grid>
         <footer>
